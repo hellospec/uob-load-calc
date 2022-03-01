@@ -28,8 +28,9 @@ function App() {
   }
 
   const calculateInstallment = () => {
-    let totalFinance = parseInt(amount) * (100 + parseFloat(interest)) / 100 
-    let newInstallment = parseFloat(totalFinance / period).toFixed(0)
+    const amountValue = amount == '' ? 0 : amount
+    let totalFinance = parseInt(amountValue) * (100 + parseFloat(interest)) / 100 
+    let newInstallment = parseFloat(totalFinance / parseInt(period)).toFixed(0)
     setInstallment(newInstallment)
 
     return newInstallment
