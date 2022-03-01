@@ -52,6 +52,7 @@ function App() {
 
 function InputValue(props) {
   const autoFocus = props.autoFocus != undefined ? true : false
+  const step = props.step != undefined ? props.step : 'any' 
 
   return (
     <div>
@@ -59,7 +60,7 @@ function InputValue(props) {
       <input type="number"
         value={props.value}
         onChange={e => props.handleChange(e)}
-        step={ props.step != undefined ? props.step : 'any' }
+        step={step}
         autoFocus={autoFocus}
       />
     </div>
