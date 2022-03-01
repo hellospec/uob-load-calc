@@ -2,6 +2,7 @@ import ReactDOM from "react-dom"
 import React from "react"
 import { useState, useEffect } from "react"
 
+import calculateInstallment from "../lib/loan"
 import Installment from './components/Installment'
 import InputValue from './components/InputValue'
 
@@ -15,7 +16,8 @@ function App() {
   const [installment, setInstallment] = useState(0)
 
   useEffect(() => {
-    calculateInstallment()
+    const newInstallment = calculateInstallment(amount, interest, period)
+    setInstallment(newInstallment)
   })
 
   const handleAmountChange = (e) => {
@@ -28,15 +30,6 @@ function App() {
 
   const handlePeriodChange = (e) => {
     setPeriod(e.target.value)
-  }
-
-  const calculateInstallment = () => {
-    const amountValue = amount == '' ? 0 : amount
-    let totalFinance = parseInt(amountValue) * (100 + parseFloat(interest)) / 100 
-    let newInstallment = parseFloat(totalFinance / parseInt(period)).toFixed(0)
-    setInstallment(newInstallment)
-
-    return newInstallment
   }
 
   return (
