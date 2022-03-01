@@ -2,6 +2,9 @@ import ReactDOM from "react-dom"
 import React from "react"
 import { useState, useEffect } from "react"
 
+import Installment from './components/Installment'
+import InputValue from './components/InputValue'
+
 function App() {
   const DEFAULT_INTEREST = 2.0
   const DEFAULT_PERIOD_MONTHS = 48
@@ -46,32 +49,6 @@ function App() {
         <Installment value={installment} />
       </div>
       
-    </div>
-  )
-}
-
-function InputValue(props) {
-  const autoFocus = props.autoFocus != undefined ? true : false
-  const step = props.step != undefined ? props.step : 'any' 
-
-  return (
-    <div>
-      <label htmlFor="period">{props.label}</label>
-      <input type="number"
-        value={props.value}
-        onChange={e => props.handleChange(e)}
-        step={step}
-        autoFocus={autoFocus}
-      />
-    </div>
-  )
-}
-
-function Installment(props) {
-  return (
-    <div>
-      <label htmlFor="installment">ค่างวดเดือนละ</label>
-      <div>{props.value}</div>
     </div>
   )
 }
