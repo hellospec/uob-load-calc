@@ -38,8 +38,8 @@ function App() {
 
   return (
     <div>
-      <InputValue label="ระบุวงเงินกู้" value={amount} handleChange={handleAmountChange} />
-      <InputValue label="ระบุอัตราดอกเบี้ย" value={interest} handleChange={handleInterestChange} step="0.1" />
+      <InputValue label="ระบุวงเงินกู้" value={amount} handleChange={handleAmountChange} autoFocus />
+      <InputValue label="ระบุอัตราดอกเบี้ย" value={interest} handleChange={handleInterestChange} step="0.1"/>
       <InputValue label="ระยะเวลากู้ (เดือน)" value={period} handleChange={handlePeriodChange} />
 
       <div>
@@ -51,6 +51,8 @@ function App() {
 }
 
 function InputValue(props) {
+  const autoFocus = props.autoFocus != undefined ? true : false
+
   return (
     <div>
       <label htmlFor="period">{props.label}</label>
@@ -58,6 +60,7 @@ function InputValue(props) {
         value={props.value}
         onChange={e => props.handleChange(e)}
         step={ props.step != undefined ? props.step : 'any' }
+        autoFocus={autoFocus}
       />
     </div>
   )
