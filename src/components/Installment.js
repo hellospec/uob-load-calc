@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function Installment(props) {
   return (
-    <div>
-      <label htmlFor="installment">ค่างวดเดือนละ</label>
-      <div>{props.value}</div>
+    <div className="flex gap-4">
+      <label htmlFor="installment" className="w-32">ค่างวดเดือนละ</label>
+      <div className="px-4 py-2 bg-yellow-200 flex-grow">{props.value}</div>
     </div>
   )
 }

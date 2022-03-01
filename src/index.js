@@ -40,7 +40,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="form-wrapper mt-8">
       <InputValue label="ระบุวงเงินกู้" value={amount} handleChange={handleAmountChange} autoFocus />
       <InputValue label="ระบุอัตราดอกเบี้ย" value={interest} handleChange={handleInterestChange} step="0.1"/>
       <InputValue label="ระยะเวลากู้ (เดือน)" value={period} handleChange={handlePeriodChange} />
