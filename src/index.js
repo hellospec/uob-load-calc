@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom"
 import React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 function App() {
   const DEFAULT_INTEREST = 2.0
@@ -11,24 +11,25 @@ function App() {
   const [period, setPeriod] = useState(DEFAULT_PERIOD_MONTHS)
   const [installment, setInstallment] = useState(0)
 
+  useEffect(() => {
+    calculateInstallment()
+  })
+
   const handleAmountChange = (e) => {
     setAmount(e.target.value)
-    calculateInstallment()
   }
 
   const handleInterestChange = (e) => {
     setInterest(e.target.value)
-    calculateInstallment()
   }
 
   const handlePeriodChange = (e) => {
     setPeriod(e.target.value)
-    calculateInstallment()
   }
 
   const calculateInstallment = () => {
-    let totalFinance = amount * (100 + interest) / 100 
-    let newInstallment = totalFinance / period
+    let totalFinance = parseInt(amount) * (100 + parseFloat(interest)) / 100 
+    let newInstallment = parseFloat(totalFinance / period).toFixed(0)
     setInstallment(newInstallment)
 
     return newInstallment
