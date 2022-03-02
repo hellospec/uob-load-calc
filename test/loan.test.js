@@ -24,3 +24,14 @@ test('negative interest', () => {
   
   expect(result).toBe(0)
 })
+
+
+test('when enter empty string the installment should not show NaN', () => {
+  const params = dataToParams({ ...data, interest: '' })
+  const result = calculateInstallment(...params) 
+
+  const paramsWithoutInterest = dataToParams({ ...data, interest: 0 })
+  const installmentWithoutInterest = calculateInstallment(...paramsWithoutInterest)
+  
+  expect(result).toBe(installmentWithoutInterest)
+})
