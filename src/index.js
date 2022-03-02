@@ -33,7 +33,6 @@ function App() {
   }
 
   const loseFocusInterest = () => {
-    console.log('lose focus....')
     if (interest === '') {
       setInterest(0)
     }
