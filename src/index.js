@@ -32,10 +32,17 @@ function App() {
     setPeriod(e.target.value)
   }
 
+  const loseFocusInterest = () => {
+    console.log('lose focus....')
+    if (interest === '') {
+      setInterest(0)
+    }
+  }
+
   return (
     <div className="form-wrapper mt-8">
       <InputValue label="ระบุวงเงินกู้" value={amount} handleChange={handleAmountChange} autoFocus />
-      <InputValue label="ระบุอัตราดอกเบี้ย" value={interest} handleChange={handleInterestChange} step="0.1"/>
+      <InputValue label="ระบุอัตราดอกเบี้ย" value={interest} handleChange={handleInterestChange} handleBlur={loseFocusInterest} step="0.1"/>
       <InputValue label="ระยะเวลากู้ (เดือน)" value={period} handleChange={handlePeriodChange} />
 
       <div>
